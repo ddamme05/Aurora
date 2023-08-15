@@ -113,7 +113,10 @@ export default function Configurator() {
         ? 'http://ec2-3-210-110-55.compute-1.amazonaws.com'
         : 'http://localhost:5173';
         console.log(baseUrl);
-        window.location.href = `${baseUrl}/portal/${id}`;
+        const finalUrl = `${baseUrl}/portal/${id}`;
+
+        console.log("Redirecting -> ", finalUrl);
+        window.location.href = finalUrl;
         //navigate(`/portal/${id}`);
       } else {
         console.error("Failed to generate quiz");
