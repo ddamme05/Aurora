@@ -112,8 +112,9 @@ export default function Configurator() {
         const id = response.data.id;
         // eslint-disable-next-line no-undef
         const baseUrl = process.env.NODE_ENV === 'production'
-        ? 'http://ec2-3-210-110-55.compute-1.amazonaws.com/'
+        ? 'http://ec2-3-210-110-55.compute-1.amazonaws.com'
         : 'http://localhost:5173';
+        console.log(baseUrl);
         window.location.href = `${baseUrl}/portal/${id}`;
         //navigate(`/portal/${id}`);
       } else {
