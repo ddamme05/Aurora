@@ -1,8 +1,11 @@
 const express = require("express");
+const path = require("path");
 const app = express();
-const port = 4000;
 const session = require("express-session");
-require("dotenv").config();
+const env = process.env.NODE_ENV || "development";
+if (env === "development") {
+  require("dotenv").config();
+}
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const openAIRoutes = require("./routes/openAIRoutes");
@@ -77,6 +80,13 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+app.use(express.static(path.join(__dirname, "client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/dist", "index.html"));
+});
+
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running at http://localhost:${process.env.PORT}`);
 });
