@@ -23,7 +23,7 @@ export default function LogIn() {
     e.preventDefault();
     try {
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate("/generator");
+      window.location.href = "/generator"; 
     } catch (error) {
       if (error.message.includes("401")) {
         setErrorMessage("An unexpected error occured. Try again.");
@@ -50,6 +50,7 @@ export default function LogIn() {
             "& .MuiInputLabel-root.Mui-focused": {
               color: "black",
             },
+            
           }}
           variant="standard"
           color="text"
@@ -85,6 +86,10 @@ export default function LogIn() {
               position: "relative",
               left: "20em",
               cursor: "pointer",
+              '@media (max-width: 700px)':{
+                left: "5em",
+
+              },
             }}
           >
             Forgot password?
