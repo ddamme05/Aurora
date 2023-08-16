@@ -21,6 +21,7 @@
           {
             "type": 1,
             "question": "Carrots are a type of vegetable.",
+            "question": "Carrots are a type of vegetable. (True/False)",
             "correctAnswer": "1"
           },
           {

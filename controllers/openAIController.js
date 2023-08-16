@@ -42,6 +42,7 @@ async function generate(req, res) {
           {
             "type": 1,
             "question": "Carrots are a type of vegetable.",
+            "question": "Carrots are a type of vegetable. (True/False)",
             "correctAnswer": "1"
           },
           {
@@ -168,7 +169,5 @@ async function regenerateQuestion(req, res) {
     res.status(500).json({ error: 'Failed to regenerate question.' });
   }
 }
-
-
 
 module.exports = { generate, regenerateQuestion };
