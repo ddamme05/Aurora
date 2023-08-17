@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import Dashboard from "./views/dashboard";
 import SignUp from "./views/signup";
 import LogIn from "./views/login";
-import Welcome from "./views/Welcome";
+import Welcome from "./views/welcome";
 // import App from "./views/Generator";
 import Portal from "./views/Portal";
 import Configurator from "./views/Configurator";
