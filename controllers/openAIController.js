@@ -146,7 +146,7 @@ async function regenerateQuestion(req, res) {
 
     console.log('New text:', newText);
 
-    const regeneratedQuestion = newText;
+    const regeneratedQuestion = JSON.parse(newText);
 
     console.log('Regenerated question object:', regeneratedQuestion);
 
