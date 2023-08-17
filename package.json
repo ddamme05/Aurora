@@ -1,10 +1,16 @@
 {
   "name": "server",
+  "engines": {
+    "node": "18.16.0"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "deploy": "npm install && npm install --prefix client && npm run build --prefix client && npm start",
+    "console": "node repl.js"
   },
   "keywords": [],
   "author": "",
