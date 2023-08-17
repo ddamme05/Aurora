@@ -91,7 +91,15 @@ export default function Configurator() {
       // If successful, redirect to the new URL with the ID from the response
       if (response.data.success) {
         const id = response.data.id;
-        window.location.href = `http://localhost:5173/portal/${id}`;
+        // eslint-disable-next-line no-undef
+        const baseUrl = process.env.NODE_ENV === 'production'
+        ? 'http://ec2-3-210-110-55.compute-1.amazonaws.com'
+        : 'http://localhost:5173';
+        console.log(baseUrl);
+        const finalUrl = `${baseUrl}/portal/${id}`;
+
+        console.log("Redirecting -> ", finalUrl);
+        window.location.href = finalUrl;
         //navigate(`/portal/${id}`);
       } else {
         console.error("Failed to generate quiz");
