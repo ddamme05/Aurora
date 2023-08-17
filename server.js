@@ -55,10 +55,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.send("Aurora");
-});
-
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/openAI", openAIRoutes);

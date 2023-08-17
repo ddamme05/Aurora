@@ -2,11 +2,10 @@ import { useRef, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import "../styles/signup.css";
 import {Link} from "react-router-dom"
 import HomeNB from "../components/HomeNB";
-import GoogleIcon from "@mui/icons-material/Google";
-import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext } from "../AuthContext";
+import "../styles/auth.css";
 
 export default function SignUp() {
   const full_nameRef = useRef();
@@ -16,7 +15,7 @@ export default function SignUp() {
 
   const [errorMessage, setErrorMessage] = useState("");
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { signup } = useContext(AuthContext);
 
@@ -29,7 +28,7 @@ export default function SignUp() {
         emailRef.current.value,
         passwordRef.current.value
       );
-      navigate("/generator");
+      window.location.href = "/generator"; 
     } catch (error) {
       console.error(`Error: ${error}`);
       if (error.response) {
@@ -41,10 +40,11 @@ export default function SignUp() {
   };
 
   return (
-    <>
+    <div className="signup">
       <HomeNB />
-      <h1 style={{ marginTop: "12vh" }}>Sign Up</h1>
-      <form onSubmit={handleSignUp} className="form">
+      <div className="auth-container">
+      <form onSubmit={handleSignUp} className="auth-form">
+        <h1>Sign Up</h1>
         {errorMessage && (
           <div className="error-message" style={{ marginBottom: "1rem" }}>
             {errorMessage}
@@ -115,6 +115,7 @@ export default function SignUp() {
           required
           inputRef={passwordRef}
         />
+        <div className="auth-btns">
         <Link to="/login" style={{textDecoration: 'none'}}>
           <Button
             variant="outlined"
@@ -123,36 +124,44 @@ export default function SignUp() {
               color: "white",
               border: "1px solid",
               borderRadius: "50px",
-              display: "block",
-              marginBottom: "1.25em",
+              marginBottom: "1em",
+              height: "50%",
               width: "100%",
               "&:hover": {
-                backgroundColor: "rgba(217, 217, 217, 0.20)",
                 borderColor: "white",
-              },
+                border: "3px solid", // Increased border thickness to 3px
+                backgroundColor: "transparent",
+                // fontWeight: "500",
+                boxShadow: "none",
+            },
             }}
           >
             Already have an account?
           </Button>
-        </Link>
-        <Button
-          variant="outlined"
-          type="submit"
-          sx={{
-            color: "white",
-            border: "1px solid",
-            display: "block",
-            width: "100%",
-            borderRadius: "50px",
-            "&:hover": {
-              backgroundColor: "rgba(217, 217, 217, 0.20)",
-              borderColor: "white",
+          </Link>
+          <Button
+            variant="outlined"
+            type="submit"
+            sx={{
+              color: "white",
+              border: "1px solid",
+              width: "100%",
+              height: "50%",
+              borderRadius: "50px",
+              "&:hover": {
+                borderColor: "white",
+                border: "3px solid", // Increased border thickness to 3px
+                backgroundColor: "transparent",
+                fontWeight: "500",
+                boxShadow: "none",
             },
-          }}
-        >
-          Sign Up
-        </Button>
+            }}
+          >
+            Sign Up
+          </Button>
+        </div>
       </form>
-    </>
+      </div>
+    </div>
   );
 }
