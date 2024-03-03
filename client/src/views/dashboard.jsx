@@ -18,68 +18,78 @@ import LogoutButton from "../components/LogoutButton";
 
 const styles = {
   pcContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    height: '82vh', // Adjust the height based on your requirement
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    height: 'auto',
+    margin: '0', // Reset default margins
+    padding: '0', // Reset default paddings
+    alignItems: 'stretch', // This will stretch the items to fill the container height
   },
+  
   leftColumn: {
-    flex: 2,
+    gridColumn: '1 / 2', // Occupy the first column
     display: 'flex',
-    flexDirection: 'column',  
-    alignItems: 'flex-start',
+    flexDirection: 'column',
+    alignItems: 'center', // Center items horizontally
+    justifyContent: 'center', // Center items vertically
     position: 'relative',
-    right: '5em',
-    top: '5em',
+    padding: '0',
+    marginLeft: '-10em',
+    marginTop: '-10em',
   },
+  
   rightColumn: {
-    flex: 2,
-    display: 'flex',
-    flexDirection: 'row',
+    gridColumn: '2 / 3', // Occupy the second column
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr', // Split the right column into two columns
   },
-  recentColumn:{
-    flex: 2,
+  recentColumn: {
+    gridColumn: '1 / 2', // Occupy the first column of the right column
     display: 'flex',
     flexDirection: 'column',
-    height: '80vh', 
+    height: '80vh',
   },
-  suggestedColumn:{
-    flex: 2,
+  suggestedColumn: {
+    gridColumn: '2 / 3', // Occupy the second column of the right column
     display: 'flex',
     flexDirection: 'column',
-    height: '80vh', 
-
+    height: '80vh',
   },
 };
 
+
 const mobileStyles = {
   pcContainer: {
-    flexDirection: "column", // Stack columns on smaller screens
-
+    display: 'grid',
+    gridTemplateAreas: `
+    'header header'
+    'rec sug'
+    `
+  ,height: 'auto', // Adjust the height based on your requirement
   },
   leftColumn: {
-    flexDirection: "column",
-    alignItems: "center",
-    position: "relative",
-    top: "0em",
-    paddingTop: "0",
-    left: "5em",
+    gridArea: 'header',
+    right: 'auto',
+    top: 'auto',
+    marginTop: 'auto',
+    marginLeft: '10em',
   },
   rightColumn: {
-    display: "flex",
-    flexDirection: "row",
-    //justifyContent: "center",
-    padding: "1em 0 0 5em",
-    maxHeight: "auto",
+    gridRow: '2 / 3', // Occupy the second row
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr', // Split the right column into two columns
   },
-  recentColumn:{
-    position: "relative",
-    right: '1em',
-    bottom: '7em',
+  recentColumn: {
+    gridArea: 'rec',
+    display: 'grid',
+    flexDirection: 'row',
+    height: '80vh',
   },
   suggestedColumn: {
-    position: "relative",
-    right: '6em',
-    bottom: '7em',
+    gridArea: 'rec', 
+    display: 'grid',
+    flexDirection: 'row',
+    height: '80vh',
   },
 };
 export default function Dashboard() {
