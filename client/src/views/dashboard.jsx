@@ -1,100 +1,98 @@
-// import NavGenerator from "../components/Dashboard/NavGenerator";
-// import { QuizGen } from "../components/Dashboard/QuizGen";
-// import FavCategory from "../components/Dashboard/FavCategory";
-// import RecentTitle from "../components/Dashboard/RecentQuizzes/RecentTitle";
-import RecentQuizzesList from "../components/RecentQuizzesList";
-// import SuggestedTitle from "../components/Dashboard/SuggestedQuizzes/SuggestedTitle";
-// import SuggestedQuizzesList from "../components/Dashboard/SuggestedQuizzes/SuggestedQuizzesList";
-// import Footer from "../components/Footer";
-import { useEffect, useState, useContext } from "react";
-import { useMediaQuery, useTheme, Button } from "@mui/material"; 
-// import List from '@mui/material/List';
-import axios from "axios";
+import React from "react";
+import { useMediaQuery, useTheme } from "@mui/material"; 
+import NavGenerator from "../components/Dashboard/NavGenerator";
+import {QuizGen} from "../components/Dashboard/QuizGen";
+import FavCategory from "../components/Dashboard/FavCategory";
+import RecentTitle from "../components/Dashboard/RecentQuizzes/RecentTitle";
+import RecentQuizzesList from "../components/Dashboard/RecentQuizzes/RecentQuizzesList";
+import SuggestedTitle from "../components/Dashboard/SuggestedQuizzes/SuggestedTitle";
+import SuggestedQuizzesList from "../components/Dashboard/SuggestedQuizzes/SuggestedQuizzesList";
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import LogoutButton from "../components/LogoutButton"
-import { AuthContext } from "../AuthContext";
+import Footer from "../components/Footer";
+
+//import Footer from "../components/Footer";
 import "../styles/dashboard.css"
-
-// const styles = {
-//   pcContainer: {
-//     display: 'flex',
-//     flexDirection: 'row',
-//     height: '82vh', // Adjust the height based on your requirement
-//   },
-//   leftColumn: {
-//     flex: 2,
-//     display: 'flex',
-//     flexDirection: 'column',  
-
-//   },
-//   rightColumn: {
-//     flex: 2,
-//     display: 'flex',
-//     flexDirection: 'row',
-//   },
-//   recentColumn:{
-//     flex: 2,
-//     display: 'flex',
-//     flexDirection: 'column',
-//   },
-//   suggestedColumn:{
-//     flex: 2,
-//     display: 'flex',
-//     flexDirection: 'column',
-
-//   },
-// };
-
-// const mobileStyles = {
-//   pcContainer: {
-//     flexDirection: "column", // Stack columns on smaller screens
-//   },
-//   leftColumn: {
-//     flexDirection: "column",
-//     justifyContent: "flex-start",
-//     alignItems: "start",
-//   },
-//   rightColumn: {
-//     display: "flex",
-//     flexDirection: "row",
-//     //justifyContent: "center",
-//   },
-//   recentColumn:{
-//     position: "relative",
-//     right: '1em',
-//     bottom: '7em',
-//   },
-//   suggestedColumn: {
-//     position: "relative",
-//     right: '6em',
-//     bottom: '7em',
-//   },
-// };
+import { Button } from "@material-ui/core";
+import LogoutButton from "../components/LogoutButton";
 
 
+const styles = {
+  pcContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    height: '82vh', // Adjust the height based on your requirement
+  },
+  leftColumn: {
+    flex: 2,
+    display: 'flex',
+    flexDirection: 'column',  
+    alignItems: 'flex-start',
+    position: 'relative',
+    right: '5em',
+    top: '5em',
+  },
+  rightColumn: {
+    flex: 2,
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  recentColumn:{
+    flex: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    height: '80vh', 
+  },
+  suggestedColumn:{
+    flex: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    height: '80vh', 
+
+  },
+};
+
+const mobileStyles = {
+  pcContainer: {
+    flexDirection: "column", // Stack columns on smaller screens
+
+  },
+  leftColumn: {
+    flexDirection: "column",
+    alignItems: "center",
+    position: "relative",
+    top: "0em",
+    paddingTop: "0",
+    left: "5em",
+  },
+  rightColumn: {
+    display: "flex",
+    flexDirection: "row",
+    //justifyContent: "center",
+    padding: "1em 0 0 5em",
+    maxHeight: "auto",
+  },
+  recentColumn:{
+    position: "relative",
+    right: '1em',
+    bottom: '7em',
+  },
+  suggestedColumn: {
+    position: "relative",
+    right: '6em',
+    bottom: '7em',
+  },
+};
 export default function Dashboard() {
 
-  const authContext = useContext(AuthContext); 
-  const userId = authContext.currentUser?.id;
-  
-  // const theme = useTheme();
-  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
-  const [quizzes, setquizzes] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(`/api/quizzes/${userId}`) 
-      .then((response) => {
-        setquizzes(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [])
-
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
   return (
-    <div className="dashboard">
-      <div className="dash-header">
+    <>
+      
+
+      <div className="scrollUpAnimation">
+        <div className="dash-header">
         <div className="dash-header-left"></div>
         <div className="dash-header-mid">
           <Button
@@ -119,51 +117,39 @@ export default function Dashboard() {
           <LogoutButton />
         </div>
       </div>
-      <div className="dash-main-container">
-        <div className="dash-main-left">
-          <div className="quizzes-generated">
-            <div className="quizzes-generated-content">
-              <h1>{quizzes.length}</h1>
-              <p>Quizzes Generated</p>
+        
+        <div style={{ ...styles.pcContainer, ...(isMobile && mobileStyles.pcContainer) }} className="dash-main-container">
+          <div style={{ ...styles.leftColumn, ...(isMobile && mobileStyles.leftColumn)}} className= "dash-main-left">
+            <div >
+              <div >
+                <QuizGen />
+              </div>
             </div>
-          </div>
-            {/* <div className="favorite-category">
-              <div className="favorite-category-content">
-                <h1>N/A</h1>
-                <p>Favorite Category</p>
+            {/* <div className="quizzes-generated">
+              <div className="quizzes-generated-content">
+                <FavCategory />
               </div>
             </div> */}
-        </div>
-        <div className="vertical-divider"></div>
-        <div className="dash-main-right">
-            <h3>Recent</h3>
-            {/* <div className="recent-quizzes"> */}
-              <RecentQuizzesList />
-            {/* </div> */}
-        </div>
+            
+          </div>
+          <div style={{...styles.rightColumn, ...(isMobile && mobileStyles.rightColumn)}} className="dash-main-right">
+            <div style={{...styles.recentColumn, ...(isMobile && mobileStyles.recentColumn)}}>
+              <div className="headers">
+                 <RecentTitle />
+              </div>
+            
+            <RecentQuizzesList />
+            </div>
+            <div style={{...styles.suggestedColumn, ...(isMobile && mobileStyles.suggestedColumn)}}>
+            <div className="headers">
+                 <SuggestedTitle />
+              </div>
+                <SuggestedQuizzesList />
+              </div>
+          </div>
+      </div>    
+      {/* <Footer /> */}
       </div>
-      <div className="dash-footer"></div>
-    </div>
-    // <>
-    //   <div className="scrollUpAnimation">
-    //     <NavGenerator />
-    //     <div style={{ ...styles.pcContainer, ...(isMobile && mobileStyles.pcContainer) }}>
-    //       <div style={{ ...styles.leftColumn, ...(isMobile && mobileStyles.leftColumn)}}>
-    //         <QuizGen />
-    //         <FavCategory />
-    //       </div>
-    //       <div style={{...styles.rightColumn, ...(isMobile && mobileStyles.rightColumn)}}>
-    //         <div style={{...styles.recentColumn, ...(isMobile && mobileStyles.recentColumn)}}>
-    //         <RecentTitle />
-    //         <RecentQuizzesList />
-    //         </div>
-    //         <div style={{...styles.suggestedColumn, ...(isMobile && mobileStyles.suggestedColumn)}}>
-    //         <SuggestedTitle />
-    //         <SuggestedQuizzesList />
-    //         </div>
-    //       </div>
-    //     </div>    
-    //   </div>
-    // </>
+    </>
   );
 }

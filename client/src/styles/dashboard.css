@@ -3,7 +3,7 @@
     padding: 0;
   } */
   
-  /* @keyframes scrollUpAnimation {
+  @keyframes scrollUpAnimation {
     from {
       transform: translateY(100%);
       opacity: 0;
@@ -12,14 +12,14 @@
       transform: translateY(0); 
       opacity: 1;
     }
-  } */
+  }
   
-  /* .scrollUpAnimation {
+  .scrollUpAnimation {
     animation: scrollUpAnimation 1s ease-out;
-  } */
+  }
     
 
-  /* @keyframes scrollDownAnimation {
+  @keyframes scrollDownAnimation {
     from {
       transform: translateY(-100%); 
       opacity: 0;
@@ -28,11 +28,12 @@
       transform: translateY(0);
       opacity: 1;
     }
-  } */
+  }
+
   
-  /* .scrollDownAnimation {
+  .scrollDownAnimation {
     animation: scrollDownAnimation 1s ease-out;
-  } */
+  }
 /*         
   .logOutDiv{
     background-color: rgba(212, 212, 212, .05);
@@ -55,6 +56,10 @@
   width: 100vw;
 }
 
+
+.headers{
+  text-align: center;
+}
 .dash-header{
   /* background-color: red; */
   /* padding: 10px; */
@@ -121,11 +126,16 @@
 }
 
 .dash-main-left {
-  /* background-color: black; */
   padding: 0px;
+
   /* align-items: center;
+  
   display: flex;
   justify-content: space-evenly; */
+}
+
+.dash-main-right{
+  padding-right: 5em;
 }
 
 .quizzes-generated {
@@ -136,7 +146,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 .quizzes-generated-content {

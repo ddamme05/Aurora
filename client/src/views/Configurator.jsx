@@ -123,7 +123,7 @@ export default function Configurator() {
 
       {/* <Input /> */}
 
-      <div className="config-main-container">
+      <div className="config-main-container scrollDownAnimation">
        
         <form className="config-form" onSubmit={handleSubmit}>
 
@@ -268,7 +268,11 @@ export default function Configurator() {
             "&:hover": {
               opacity: "1.0",
               backgroundColor: "transparent",
-            }
+            },
+            '@media (max-width: 700px)':{
+              alignItems: "end",
+              paddingTop: "32vh",
+         }
           }}
         >
           <KeyboardDoubleArrowDownIcon /> Dashboard <KeyboardDoubleArrowDownIcon />
