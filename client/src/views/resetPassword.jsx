@@ -33,12 +33,14 @@ export default function ResetPassword() {
   };
 
   return (
-    <div>
-      <h1>Reset Password</h1>
+    <div className="auth-container">
+      
 
+
+      <form onSubmit={handleSubmit} className="auth-form">
+      <h1>Reset Password</h1>
       {error && <p>{error}</p>}
 
-      <form onSubmit={handleSubmit} className="form">
         <TextField
             sx={{
               backgroundColor: "rgba(217, 217, 217, 0.20)",

@@ -41,6 +41,10 @@
   justify-content: right;
   width: 50vw;
 }
+.forgot{
+  display: flex;
+  justify-content: start;
+}
 
 @media (max-width: 700px){
   body{
