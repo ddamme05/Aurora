@@ -20,7 +20,7 @@ async function generate(req, res) {
     messages: [{ role: "user", content: 
       `
       I will be taking your response and formatting it inside user-friendly quiz taking environment on my website. 
-      Please respond in JSON format. 
+      Please respond ONLY in JSON format sometimes correctAnswer comes ass null, correctAnswer should always be an index. 
       For each question, specify whether the question is 0 or 1 ---> multiple choice or true/false.
       There could only be 2 question types, 0 or 1. NOTHING ELSE!!!!!
       Questions can only be multiple choice or true/false, do not include any other types!
