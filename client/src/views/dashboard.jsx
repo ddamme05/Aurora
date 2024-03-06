@@ -63,7 +63,7 @@ const mobileStyles = {
     display: 'grid',
     gridTemplateAreas: `
     'header header'
-    'rec sug'
+    'btn1 btn2'
     `
   ,height: 'auto', // Adjust the height based on your requirement
   },
@@ -77,7 +77,11 @@ const mobileStyles = {
   rightColumn: {
     gridRow: '2 / 3', // Occupy the second row
     display: 'grid',
+    
     gridTemplateColumns: '1fr 1fr', // Split the right column into two columns
+    gridTemplateAreas: `
+    'rec sug'
+    `
   },
   recentColumn: {
     gridArea: 'rec',
@@ -86,7 +90,7 @@ const mobileStyles = {
     height: '80vh',
   },
   suggestedColumn: {
-    gridArea: 'rec', 
+    gridArea: 'sug', 
     display: 'grid',
     flexDirection: 'row',
     height: '80vh',
