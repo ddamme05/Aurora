@@ -76,7 +76,7 @@ const mobileStyles = {
   },
   rightColumn: {
     gridArea: 'content',
-    
+    marginTop: '-6em',
     gridTemplateColumns: '1fr 1fr', // Split the right column into two columns
     gridTemplateAreas: `
     'rec sug'
