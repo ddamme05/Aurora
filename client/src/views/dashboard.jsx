@@ -61,22 +61,21 @@ const styles = {
 const mobileStyles = {
   pcContainer: {
     display: 'grid',
+    gridTemplateColumns: '1fr', // Single column layout for mobile
+    gridTemplateRows: 'auto 1fr', // The header takes the space it needs, the rest is for content
     gridTemplateAreas: `
-    'header header'
-    'btn1 btn2'
-    `
-  ,height: 'auto', // Adjust the height based on your requirement
+      'header'
+      'content'
+    `,
+    height: 'auto', // Let the container grow as needed
   },
   leftColumn: {
     gridArea: 'header',
-    right: 'auto',
-    top: 'auto',
     marginTop: 'auto',
-    marginLeft: '10em',
+    marginLeft: 'auto',
   },
   rightColumn: {
-    gridRow: '2 / 3', // Occupy the second row
-    display: 'grid',
+    gridArea: 'content',
     
     gridTemplateColumns: '1fr 1fr', // Split the right column into two columns
     gridTemplateAreas: `
@@ -87,13 +86,13 @@ const mobileStyles = {
     gridArea: 'rec',
     display: 'grid',
     flexDirection: 'row',
-    height: '80vh',
+    height: 'auto',
   },
   suggestedColumn: {
     gridArea: 'sug', 
     display: 'grid',
     flexDirection: 'row',
-    height: '80vh',
+    height: 'auto',
   },
 };
 export default function Dashboard() {
