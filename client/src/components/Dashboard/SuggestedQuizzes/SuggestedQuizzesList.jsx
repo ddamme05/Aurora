@@ -95,6 +95,7 @@ const RecentQuizzesList = () => {
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   transition: "all 0.3s",
+                  textAlign: 'center',
                   ...(isMobile && {
                     fontSize: "1.3em",
                   }),

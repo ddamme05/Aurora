@@ -67,7 +67,8 @@ const mobileStyles = {
       'header'
       'content'
     `,
-    height: 'auto', // Let the container grow as needed
+    height: '100vh',
+    overflowY: 'hidden', // Corrected typo
   },
   leftColumn: {
     gridArea: 'header',
@@ -99,7 +100,7 @@ export default function Dashboard() {
 
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+  const isMobile = useMediaQuery(theme.breakpoints.down("md")); 
   return (
     <>
       

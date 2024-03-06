@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
       height: 7, // Adjust the height of the slider track
       // boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
-      [`@media (max-width:550px)`]: {
+      [`@media (max-width:600px)`]: {
         height: 10 ,
         
       },
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       width: 25, // Adjust the width of the slider thumb
       height: 25, // Adjust the height of the slider thumb
       color: "white", // Change the slider color to grey
-      [`@media (max-width:550px)`]: {
+      [`@media (max-width:600px)`]: {
         width: 25 ,
         height: 25,
         
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     // "& .MuiTouchRipple-thumb": {
     //   display: 'none',
     // },
-    [`@media (max-width:550px)`]: {
+    [`@media (max-width:600px)`]: {
       width: '60%' ,
       
     },
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
    
   },
   button: {
-    [`@media (max-width:550px)`]: {
+    [`@media (max-width:600px)`]: {
       width: '90%' ,
     },
   },
@@ -168,7 +168,7 @@ export default function Configurator() {
                 width: "50%",
                 height: "2rem",
                 padding: "2rem",
-                [`@media (max-width:550px)`]: {
+                [`@media (max-width:600px)`]: {
                   width: '70%' ,
                   
                 },
@@ -183,7 +183,7 @@ export default function Configurator() {
                   fontSize: "1.5rem",
                   textAlign: "center",
                 } ,
-                [`@media (max-width:550px)`]: {
+                [`@media (max-width:600px)`]: {
                   
                   
                 },
