@@ -157,7 +157,7 @@ export default function Dashboard() {
             <div style={{...styles.suggestedColumn, ...(isMobile && mobileStyles.suggestedColumn)}}>
             <div className="headers">
                  <SuggestedTitle />
-              </div>
+            </div>
                 <SuggestedQuizzesList />
               </div>
           </div>

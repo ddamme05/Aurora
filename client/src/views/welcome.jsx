@@ -6,7 +6,7 @@ import RowOne from "../components/RowOne/RowOne";
 
 export default function Welcome() {
   return (
-    <div style={{ height: "100vh"}}>
+    <div style={{ height: "auto"}}>
       <NavBar />
       <RowOne />
       <Footer />
