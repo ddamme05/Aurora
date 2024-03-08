@@ -64,6 +64,12 @@ const RecentQuizzesList = () => {
       style={{
         maxHeight: "690px",
         overflowY: "auto",
+        scrollbarWidth: "none", // Hide the scrollbar on big screens
+        msOverflowStyle: "none", // Hide the scrollbar for IE and Edge
+        "&::-webkit-scrollbar": {
+          display: "none", // Hide the scrollbar for Webkit browsers
+        }
+
       }}
     >
       {recentQuizzes.map((quiz, index) => (
