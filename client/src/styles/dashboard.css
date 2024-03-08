@@ -3,7 +3,7 @@
     padding: 0;
   } */
   
-  /* @keyframes scrollUpAnimation {
+  @keyframes scrollUpAnimation {
     from {
       transform: translateY(100%);
       opacity: 0;
@@ -12,14 +12,14 @@
       transform: translateY(0); 
       opacity: 1;
     }
-  } */
+  }
   
-  /* .scrollUpAnimation {
+  .scrollUpAnimation {
     animation: scrollUpAnimation 1s ease-out;
-  } */
+  }
     
 
-  /* @keyframes scrollDownAnimation {
+  @keyframes scrollDownAnimation {
     from {
       transform: translateY(-100%); 
       opacity: 0;
@@ -28,11 +28,12 @@
       transform: translateY(0);
       opacity: 1;
     }
-  } */
+  }
+
   
-  /* .scrollDownAnimation {
+  .scrollDownAnimation {
     animation: scrollDownAnimation 1s ease-out;
-  } */
+  }
 /*         
   .logOutDiv{
     background-color: rgba(212, 212, 212, .05);
@@ -48,13 +49,17 @@
 
 
 .dashboard {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  width: 100vw;
+  width: 100vw; */
 }
 
+
+.headers{
+  text-align: center;
+}
 .dash-header{
   /* background-color: red; */
   /* padding: 10px; */
@@ -111,32 +116,37 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 80vh;
-  width: 100vw;
+  height: auto;
+  width: auto;
 }
 
 .dash-main-right, .dash-main-left {
-  width: 50%;
-  height: inherit;
+  /* width: 50%; */
+  /* height: inherit; */
 }
 
 .dash-main-left {
-  /* background-color: black; */
-  padding: 0px;
+  /* padding: 0px; */
+
   /* align-items: center;
+  
   display: flex;
   justify-content: space-evenly; */
 }
+
+/* .dash-main-right{
+  padding-right: 5em;
+} */
 
 .quizzes-generated {
   /* background-color: orange; */
   /* height: 50%; */
   height: 100%;
   width: 100%;
-  display: flex;
+  /* display: flex;
   justify-content: space-around;
   flex-direction: column;
-  align-items: center;
+  align-items: start; */
 }
 
 .quizzes-generated-content {
@@ -147,11 +157,11 @@
 .quizzes-generated-content h1 {
   font-size: 20em;
   font-weight: 100;
-  margin: -10%;
+  /* margin: -10%; */
 }
 
 .quizzes-generated-content p {
-  margin: 0px;
+  /* margin: 0px; */
   font-size: 2em;
   font-weight: 100;
   opacity: 0.5;
@@ -193,10 +203,10 @@
 
 .dash-main-right {
   /* background-color: blue; */
-  margin: 0px;
+  /* margin: 0px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   /* justify-content: space-around; */
 }
 
@@ -212,72 +222,13 @@
   /* height: 30rem; */
 /* } */
 
-.recent-quizzes-list {
-  /* background-color: green; */
+/* .recent-quizzes-list {
   overflow-y: scroll;
   padding: 3%;
   height: 55vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
+} */
 
 /* CSS for mobile screens */
-@media (max-width: 805px) {
-  
-  .dashboard {
-    height: auto;
-    overflow-y: auto;
-  }
-
-  .dash-main-container {
-    flex-direction: column; /* Stack child elements vertically */
-    height: inherit;
-  }
-  
-  .dash-main-right, .dash-main-left {
-    width: 100%; /* Make them take the full width of the parent */
-    padding: 100px;
-    margin: 0px;
-  }
-
-  .dash-main-right {
-    margin-top: -150px;
-  }
-
-  .quizzes-generated-content h1 {
-    font-size: 10em;
-  }
-  
-  .quizzes-generated-content p {
-    margin: 0px;
-    font-size: 1.1em;
-    font-weight: 100;
-    opacity: 0.5;
-  }
-
-  .dash-main-right {
-    height: auto;
-  }
-
-  .dash-main-right h3 {
-    font-size: 2em;
-    font-weight: 100;
-    height: 5vh;
-  }
-
-  .dash-footer {
-    height: 0px;
-  }
-
-  .recent-quizzes-list {
-    /* background-color: green; */
-    overflow-y: auto;
-    padding: 3%;
-    height: 1000px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-}

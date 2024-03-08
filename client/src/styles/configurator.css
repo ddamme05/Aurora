@@ -91,3 +91,11 @@
   }
 
 }
+@media (max-width: 600px) {
+  .configurator {
+
+    display: flex;
+    padding: 0;
+     margin: 0;
+  }
+} 

@@ -18,15 +18,25 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
       height: 7, // Adjust the height of the slider track
       // boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
+      [`@media (max-width:600px)`]: {
+        height: 10 ,
+        
+      },
       "&:focus, &:active": {
         color: "white", 
-        height: "6"
+        height: "6",
+        
       },
     },
     "& .MuiSlider-thumb": {
       width: 25, // Adjust the width of the slider thumb
       height: 25, // Adjust the height of the slider thumb
       color: "white", // Change the slider color to grey
+      [`@media (max-width:600px)`]: {
+        width: 25 ,
+        height: 25,
+        
+      },
     },
     "& .MuiSlider-thumb.Mui-active": {
       height: 30,
@@ -46,12 +56,23 @@ const useStyles = makeStyles((theme) => ({
     // "& .MuiTouchRipple-thumb": {
     //   display: 'none',
     // },
+    [`@media (max-width:600px)`]: {
+      width: '60%' ,
+      
+    },
   },
+  
   label: {
     display: "flex",
     color: 'white', 
     textAlign: 'center',
-    fontWeight: "100"
+    fontWeight: "100",
+   
+  },
+  button: {
+    [`@media (max-width:600px)`]: {
+      width: '90%' ,
+    },
   },
 }));
 
@@ -123,7 +144,7 @@ export default function Configurator() {
 
       {/* <Input /> */}
 
-      <div className="config-main-container">
+      <div className="config-main-container scrollDownAnimation">
        
         <form className="config-form" onSubmit={handleSubmit}>
 
@@ -147,6 +168,10 @@ export default function Configurator() {
                 width: "50%",
                 height: "2rem",
                 padding: "2rem",
+                [`@media (max-width:600px)`]: {
+                  width: '70%' ,
+                  
+                },
               }}
               placeholder="summarize the quiz topic in a few words... "
               inputProps={{ 
@@ -157,7 +182,11 @@ export default function Configurator() {
                   fontWeight: "100",
                   fontSize: "1.5rem",
                   textAlign: "center",
-                } 
+                } ,
+                [`@media (max-width:600px)`]: {
+                  
+                  
+                },
               }}
             />
 
@@ -268,7 +297,11 @@ export default function Configurator() {
             "&:hover": {
               opacity: "1.0",
               backgroundColor: "transparent",
-            }
+            },
+            '@media (max-width: 700px)':{
+              alignItems: "end",
+              paddingTop: "32vh",
+         }
           }}
         >
           <KeyboardDoubleArrowDownIcon /> Dashboard <KeyboardDoubleArrowDownIcon />

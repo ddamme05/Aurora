@@ -640,48 +640,6 @@ export default function Portal() {
                 {/* <div className="true-false"> */}
                 <Button
                   variant="outlined"
-                  onClick={() => handleSubmission(1)}
-                  disableRipple
-                  // disabled={score !== null}
-                  sx={{
-                    width: "98%",
-                    margin: "1%",
-                    borderRadius: "20px",
-                    color: "white",
-                    fontSize: "1.5em",
-                    textTransform: "none",
-                    borderColor: "white",
-                    height: "40%",
-                    opacity:
-                      score !== null
-                        ? 1 === questions[currentQuestionIndex].correctAnswer ||
-                          submissions[questions[1].id]
-                          ? "1.0"
-                          : "0.7"
-                        : selectedChoice === 1
-                        ? "1.0"
-                        : "0.7",
-                    "&:hover": {
-                      opacity: "1.0", // Change opacity on hover
-                      borderColor: "white",
-                      backgroundColor: "rgba(255, 255, 255, 0.4)",
-                    },
-                    backgroundColor: handleChoiceBgColor(1),
-                    "&:active": {
-                      backgroundColor: "white", // Change background color when clicked
-                      color: "black", // Change text color when clicked
-                      // transition: "background-color 1s, color 1s", // Apply transition for click
-                      // // Add any other styles you want to change when clicked
-                    },
-                    "&:not(:active)": {
-                      transition: "background-color 0.5s, color 0.5s", // Apply transition after click
-                    },
-                  }}
-                >
-                  True
-                </Button>
-                <Button
-                  variant="outlined"
                   onClick={() => handleSubmission(0)}
                   disableRipple
                   // disabled={score !== null}
@@ -709,6 +667,48 @@ export default function Portal() {
                       backgroundColor: "rgba(255, 255, 255, 0.4)",
                     },
                     backgroundColor: handleChoiceBgColor(0),
+                    "&:active": {
+                      backgroundColor: "white", // Change background color when clicked
+                      color: "black", // Change text color when clicked
+                      // transition: "background-color 1s, color 1s", // Apply transition for click
+                      // // Add any other styles you want to change when clicked
+                    },
+                    "&:not(:active)": {
+                      transition: "background-color 0.5s, color 0.5s", // Apply transition after click
+                    },
+                  }}
+                >
+                  True
+                </Button>
+                <Button
+                  variant="outlined"
+                  onClick={() => handleSubmission(1)}
+                  disableRipple
+                  // disabled={score !== null}
+                  sx={{
+                    width: "98%",
+                    margin: "1%",
+                    borderRadius: "20px",
+                    color: "white",
+                    fontSize: "1.5em",
+                    textTransform: "none",
+                    borderColor: "white",
+                    height: "40%",
+                    opacity:
+                      score !== null
+                        ? 1 === questions[currentQuestionIndex].correctAnswer ||
+                          submissions[questions[1].id]
+                          ? "1.0"
+                          : "0.7"
+                        : selectedChoice === 1
+                        ? "1.0"
+                        : "0.7",
+                    "&:hover": {
+                      opacity: "1.0", // Change opacity on hover
+                      borderColor: "white",
+                      backgroundColor: "rgba(255, 255, 255, 0.4)",
+                    },
+                    backgroundColor: handleChoiceBgColor(1),
                     "&:active": {
                       backgroundColor: "white", // Change background color when clicked
                       color: "black", // Change text color when clicked

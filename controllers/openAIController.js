@@ -20,7 +20,7 @@ async function generate(req, res) {
     messages: [{ role: "user", content: 
       `
       I will be taking your response and formatting it inside user-friendly quiz taking environment on my website. 
-      Please respond in JSON format. 
+      Please respond ONLY in JSON format sometimes correctAnswer comes ass null, correctAnswer should always be an index. 
       For each question, specify whether the question is 0 or 1 ---> multiple choice or true/false.
       There could only be 2 question types, 0 or 1. NOTHING ELSE!!!!!
       Questions can only be multiple choice or true/false, do not include any other types!
@@ -30,7 +30,8 @@ async function generate(req, res) {
       There can only be 1 answer.
       Each question should be an object with keys: type, question, choices, answer. 
       For the multiple choice, do not include the corresponding letter, only include the choice. 
-      List 4 choices for multiple choice questions. 
+      List 4 choices for multiple choice questions with index from 0 to 3. 
+      For true/false, 0 is true, 1 is false.
       Each question should have a limit of 120 characters.
       Questions must only appear once, they cannot be repeated.
       Give me a good mix of all question types. Strictly adhere to this example format in your response:
@@ -42,7 +43,7 @@ async function generate(req, res) {
           {
             "type": 1,
             "question": "Carrots are a type of vegetable.",
-            "correctAnswer": "1"
+            "correctAnswer": "0"
           },
           {
             "type": 0,
@@ -124,11 +125,11 @@ async function regenerateQuestion(req, res) {
   const openai = new OpenAIApi(configuration);
 
   const regenerationPrompt = question.questionType === 0
-    ? `Generate a new multiple choice question about ${quiz.category}. Include full question, full answer choices.
-    Choices are limited to 4. Do this in JSON format.
-    Omit letter choice e.g a).`
-    : `Generate a new true/false question about ${quiz.category}. Do this in JSON format.`;
-
+  ? `Generate a new multiple choice question about ${quiz.category}. Include full question, full answer choices.
+  Choices are limited to 4. Do this in JSON format.
+  Omit letter choice e.g a).`
+  : `Generate a new true/false question about ${quiz.category}. Do this in JSON format.`;
+  
   try {
     const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",

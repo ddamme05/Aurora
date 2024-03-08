@@ -69,7 +69,6 @@ const RecentQuizzesList = () => {
         "&::-webkit-scrollbar": {
           display: "none", // Hide the scrollbar for Webkit browsers
         }
-
       }}
     >
       {recentQuizzes.map((quiz, index) => (

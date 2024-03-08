@@ -23,11 +23,17 @@ const ForgotPassword = () => {
 
   return (
     <>
+    <div className="signup">
+
+  
       <HomeNB />
-      <Container>
+     
+        
+        <div className="auth-container forgot">
+        <form onSubmit={handleForgotPassword} className="auth-form">
         <h1>Forgot Password</h1>
         <Typography sx={{ marginTop: "20px" }}>{message}</Typography>
-        <form onSubmit={handleForgotPassword} className="form">
+
           <TextField
             sx={{
               backgroundColor: "rgba(217, 217, 217, 0.20)",
@@ -64,7 +70,9 @@ const ForgotPassword = () => {
             Submit
           </Button>
         </form>
-      </Container>
+        </div>
+      
+      </div>
     </>
   );
 };
