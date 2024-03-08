@@ -41,7 +41,3 @@
 - https://github.com/AhmedHamza667
 - https://github.com/ddamme05
 - https://github.com/mvoyevoda
-
-  
-
-[Experimental AWS Deployment (Behind by several commits)](https://rb.gy/u53l8)
