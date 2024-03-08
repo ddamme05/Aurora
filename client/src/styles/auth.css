@@ -1,7 +1,6 @@
-/* body{
-    color: black;
-    text-align: center;
-} */
+body{
+  overflow: hidden;
+}
 .auth-form{
     width: 50%;
     display: flex;
