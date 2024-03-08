@@ -35,7 +35,7 @@ const RecentQuizzesList = () => {
   const loadQuizzes = () => {
     // Fetch quizzes from your backend API with pagination
     axios
-      .get(`/api/quizzes/${userId}`, {
+      .get(`/api/quizzes/`, {
         params: {
           page: currentPage,
           perPage: itemsPerPage,
