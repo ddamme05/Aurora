@@ -39,6 +39,7 @@ body {
 }
 @media (max-width: 700px){  
   body{
-    overflow: auto;
+    overflow-x: hidden; /* Hide horizontal scroll */
+    overflow-y: auto; /* Allow vertical scroll */
   }
 }
