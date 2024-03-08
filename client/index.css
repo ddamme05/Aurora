@@ -4,7 +4,7 @@ body {
   padding: 0;
   background: linear-gradient(80deg, #740a6b, #ca3b3b, #a80c8e);
   background-size: 400% 400%;
-  overflow: auto;
+  overflow: hidden;
   animation: color 8s ease-in-out infinite; 
   /* background-image: url('../images/backround1.jpeg');
   background-size: cover;
@@ -35,5 +35,10 @@ body {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+@media (max-width: 700px){  
+  body{
+    overflow: auto;
   }
 }
